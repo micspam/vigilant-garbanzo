@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Greybox Slices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@600;900&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: two departure boards side by side, one per game, stacking on phones. */
+  :root { --paper: #f3f2ed; --ink: #131313; --graphite: #5c5c58; --void: #0e0e11; --chalk: #eeede6; color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 600 16px/1.5 'Overpass', system-ui, sans-serif; padding: 40px max(16px, env(safe-area-inset-left, 0px)) 48px max(16px, env(safe-area-inset-right, 0px)); }
+  main { max-width: 980px; margin: 0 auto; display: grid; gap: 28px; }
+  h1 { font: 900 clamp(32px, 6vw, 52px)/1 'Overpass', sans-serif; margin: 0; text-wrap: balance; }
+  p { margin: 0; max-width: 64ch; color: var(--graphite); }
+  .boards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  a.board { display: grid; gap: 12px; text-decoration: none; border: 3px solid var(--ink); padding: 0 0 18px; color: inherit; box-shadow: 6px 6px 0 var(--ink); transition: transform .12s; }
+  a.board:hover, a.board:focus-visible { transform: translate(-2px, -2px); outline: none; }
+  a.board:focus-visible { box-shadow: 6px 6px 0 var(--ink), 0 0 0 3px var(--paper), 0 0 0 6px var(--ink); }
+  .blind { display: flex; background: var(--ink); color: var(--paper); text-transform: uppercase; }
+  .blind b { display: grid; place-items: center; min-width: 70px; font: 900 34px/1 'Overpass', sans-serif; border-right: 3px solid var(--paper); padding: 10px 10px 6px; }
+  .blind span { padding: 12px 14px 8px; font: 900 24px/1.1 'Overpass', sans-serif; }
+  .space { background: var(--void); color: var(--chalk); border-color: var(--chalk); box-shadow: 6px 6px 0 var(--ink); }
+  .space .blind { background: var(--chalk); color: var(--void); }
+  .space .blind b { border-color: var(--void); font-family: 'Chakra Petch', sans-serif; }
+  .space .blind span { font-family: 'Chakra Petch', sans-serif; }
+  .board img { width: 100%; max-width: 100%; display: block; border-block: 3px solid currentColor; }
+  .board p, .board .go { margin-inline: 16px; color: inherit; }
+  .go { font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+  .meta { font-size: 14px; }
+  .meta a { color: var(--ink); }
+  @media (prefers-reduced-motion: reduce) { a.board { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Two greybox game slices, built by Claude Code</h1>
+  <p>Both games were built from a store page, ten screenshots, and a few sentences of direction. Neither uses assets from the game that inspired it. Both are tested on every push.</p>
+  <div class="boards">
+    <a class="board" href="route-9/">
+      <div class="blind"><b>9</b><span>Route 9</span></div>
+      <img src="docs/screenshots/route9-cab.png" alt="First-person view from a black-and-white bus cab, with a dashboard showing timer, mood gauge and next stop">
+      <p>3D, first person. Drive the town bus, slap riders who break today's rules, earn thank-yous to beat the clock.</p>
+      <span class="go">Play →</span>
+    </a>
+    <a class="board space" href="orbit-line/">
+      <div class="blind"><b>42</b><span>Orbit Line</span></div>
+      <img src="docs/screenshots/orbit-cabin.png" alt="Cutaway of a shuttle cabin with cartoon alien passengers in two rows of seats">
+      <p>2D, top-down. Fly a drifting shuttle, dock at stations, and turn round to deal with alien passengers while it keeps moving.</p>
+      <span class="go">Play →</span>
+    </a>
+  </div>
+  <p class="meta">Source, tests and the self-review are on <a href="https://github.com/micspam/vigilant-garbanzo">GitHub</a>. Keyboard and mouse recommended.</p>
+</main>
+</body>
+</html>
