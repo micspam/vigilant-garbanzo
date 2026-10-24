@@ -1,0 +1,12 @@
+{
+  "name": "vigilant-garbanzo",
+  "private": true,
+  "description": "Two greybox game slices built by Claude Code, plus the tests that prove they run.",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "three": "0.128.0"
+  }
+}
