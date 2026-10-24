@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+# Needs Settings → Pages → Source: "GitHub Actions" (one-time setup).
+on:
+  workflow_run:
+    workflows: [Tests]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Only deploy builds whose tests passed.
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/configure-pages@v5
+      - name: Collect the site
+        run: mkdir _site && cp -r index.html route-9 orbit-line docs _site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
