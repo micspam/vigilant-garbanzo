@@ -10,11 +10,11 @@ Keyboard and mouse recommended. Both run in the browser with nothing to install.
 
 A test of one claim: that AI coding is impossible without heavy hand-holding.
 
-Claude (Anthropic's model, running in Claude Code) was shown the public itch.io store page for a small commercial game: a chaotic first-person bus game with a page of three bullet points and ten screenshots. It was asked whether it could rebuild the game's design from that page alone, without downloading the game. It said yes, wrote a design breakdown, and was then told to build a greybox vertical slice. That's **Route 9**.
+Claude (Anthropic's model, running in Claude Code) was shown the public itch.io store page for [*Thank You Bus Driver*](https://doublefine.itch.io/thank-you-bus-driver), a chaotic first-person bus game from Double Fine Productions. The page has three bullet points and ten screenshots. It was asked whether it could rebuild the game's design from that page alone, without downloading the game. It said yes, wrote a design breakdown, and was then told to build a greybox vertical slice. That's **Route 9**.
 
 It was then asked for a "spiritual clone set in space, 2D is fine". It recommended a design and asked one question about it. The human said they wouldn't answer and told it to do what it thought best. That's **Orbit Line 42**.
 
-Everything in this repo was written by Claude: both games, the tests, the CI, the landing page and these documents. [HUMAN_INPUT.md](HUMAN_INPUT.md) summarises every instruction the human gave. [SELF_REVIEW.md](SELF_REVIEW.md) is Claude's own critical code review.
+Everything in this repo was written by Claude: both games, the tests, the CI, the landing page and these documents. [SELF_REVIEW.md](SELF_REVIEW.md) is Claude's own critical code review.
 
 | | Route 9 | Orbit Line 42 |
 |---|---|---|
@@ -70,19 +70,19 @@ There are ten Playwright tests across both games. They run on every push, and sc
 
 - **Nobody has playtested these by hand.** Handling, docking speed and mood numbers are first guesses that pass automated checks. Whether they feel good needs a human playing.
 - **They are small, new, self-contained projects,** which is where AI coding works best. Large existing codebases are harder.
-- **The mechanics are deliberately borrowed** from the game that inspired Route 9; that was the point. The code, art, names and writing are original, and no files or assets from that game were used.
+- **The mechanics are deliberately borrowed** from [*Thank You Bus Driver*](https://doublefine.itch.io/thank-you-bus-driver); that was the point. The code, art, names and writing are original, and no files or assets from that game were used.
 - **The code quality has real problems.** See [SELF_REVIEW.md](SELF_REVIEW.md).
 
 ## FAQ for sceptics
 
 **A human must have fixed the bugs.**
-See the bug list above, the commit history, and [HUMAN_INPUT.md](HUMAN_INPUT.md). The human reported no bugs and edited no code.
+See the bug list above and the commit history. The human reported no bugs and edited no code.
 
 **The AI wrote its own tests, so they prove nothing.**
 They're short and readable, so read them, or skip them and play the games. CI screenshots from every run are attached to the Actions results.
 
 **It's just a clone.**
-The mechanics are borrowed on purpose. Game mechanics aren't copyrightable, and nothing here copies the original's art, characters, names or code. Orbit Line moves the idea to a new setting, with a new view model, physics and rules.
+The mechanics are borrowed on purpose. Game mechanics aren't copyrightable, and nothing here copies the original's art, characters, names or code. Orbit Line moves the idea to a new setting, with a new view model, physics and rules. If you like the idea, [go and buy the real one](https://doublefine.itch.io/thank-you-bus-driver). It's $4.99, and it has the art, writing and polish a greybox doesn't.
 
 **These are toys.**
 Yes. The claim being tested was "impossible without aggressive hand-holding", not "replaces a studio".
@@ -99,4 +99,8 @@ Find a gameplay bug the tests don't catch and [open an issue](https://github.com
 
 ## Credits and legal
 
-Original code by Claude (Anthropic) via Claude Code, directed briefly by the repo owner. Inspired by the mechanics described on the public store page of a commercial indie game. Not affiliated with or endorsed by its developer, and not built from its files. Route 9 uses [Three.js](https://threejs.org/) (MIT). Fonts from Google Fonts.
+Original code by Claude (Anthropic) via Claude Code, directed briefly by the repo owner.
+
+The idea and core mechanics come from [*Thank You Bus Driver*](https://doublefine.itch.io/thank-you-bus-driver) by Double Fine Productions, published under Double Fine Action Labs, as described on its public itch.io store page. This project is not affiliated with or endorsed by Double Fine, and was not built from the game's files or assets. If you enjoyed these slices, please support the original.
+
+Route 9 uses [Three.js](https://threejs.org/) (MIT). Fonts from Google Fonts.
